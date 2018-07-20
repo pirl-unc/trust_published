@@ -1,4 +1,5 @@
-This docker image sets up the environment to run TRUST version 3.0.1
+This docker image sets up the environment to run the version of TRUST that was published:
+https://media.nature.com/original/nature-assets/ng/journal/v49/n4/extref/ng.3820-s2.zip
 
 This needs to be run on bam files.  Theyu previously recommended Bowtie2 or MapSlice to run the bams so I would suggest making your bams with those to avoid having to optomize parameters for STAR.
 https://bitbucket.org/liulab/trust
@@ -8,8 +9,8 @@ Interestingly the program and the readme say all rights reserved while the licen
 ---- Helpful commands ----
 
 Init:  
-`cd /datastore/alldata/shiny-server/rstudio-common/dbortone/docker/trust/; ls
-my_image=trust_3.0.3:1`
+`cd /datastore/alldata/shiny-server/rstudio-common/dbortone/docker/trust_published/; ls
+my_image=trust_published:1`
 
 Run interactive session as root:  
 `srun --pty -c 1 --mem 1g -p dockerbuild docker run -v /datastore:/datastore:shared -it dockerreg.bioinf.unc.edu:5000/${my_image} bash`
