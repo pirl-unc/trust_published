@@ -1,4 +1,4 @@
-# trust_3.0.1:1
+# trust_published:1
 # this build is on a platform that uses aquasecurity: the image is built as root but intended to be run as the user
 # to run this image as root get rid of the --user flags
 
@@ -12,7 +12,9 @@ RUN \
   apt-get install -yq \
     less \
     nano \
-    sudo
+    sudo \
+    wget \ 
+    unzip
 
 # add python
 # pip 10 has a bug and shouldn't be used as of 20180614.
@@ -37,12 +39,11 @@ RUN \
 # now add trust
 RUN \
   cd /opt && \
-  apt-get -yq install git && \
-  git clone https://bitbucket.org/liulab/trust.git trust && \
-  cd trust && \
-  git checkout 3.0.1 && \
-  python setup.py install
-# Finished processing dependencies for trust==3.0.1
+  wget https://media.nature.com/original/nature-assets/ng/journal/v49/n4/extref/ng.3820-s2.zip && \
+  unzip -o ng.3820-s2.zip && \
+  rm -r __MACOSX && \
+  rm ng.3820-s2.zip && \
+  mv SupplementarySoftware TRUST
 
 RUN \ 
   apt-get clean  

@@ -45,11 +45,49 @@ exit
 
 `srun --pty -c 8 --mem 16g -p docker -w c6145-docker-2-0.local docker run -v /datastore:/datastore:shared -v /home/dbortone:/home/dbortone dockerreg.bioinf.unc.edu:5000/trust_3.0.1:1 bash -c "export HOME=/tmp; trust --help"`
 
-`srun --pty -c 8 --mem 16g -p docker -w c6145-docker-2-0.local docker run -v /datastore:/datastore:shared -v /home/dbortone:/home/dbortone dockerreg.bioinf.unc.edu:5000/trust_3.0.1:1 bash -c "\
-  trust \
-    --CoreN=8 \
-    --genome=hg38 \
+
+`srun --pty -c 8 --mem 16g -p docker -w c6145-docker-2-0.local docker run -v /datastore:/datastore:shared -v /home/dbortone:/home/dbortone dockerreg.bioinf.unc.edu:5000/trust_published:1 bash -c "\
+  python /opt/TRUST/TRUST.py \
     -H \
-    -E \
+    -a \
     -f /home/dbortone/scratch/test_bowtie/test_file_bowtie2.bam \
-    -o /home/dbortone/scratch/test_bowtie/"
+    -o /home/dbortone/scratch/test_bowtie/"`
+
+
+Usage: TRUST.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -d DIRECTORY, --directory=DIRECTORY
+                        Input bam directory
+  -f FILE, --file=FILE  Input bam file: if given, overwite -d option
+  -F FILES, --fileList=FILES
+                        Alternative input: a file containing the full path to
+                        all the files. If given, overwrite -d and -f option
+  -m RUNNINGMODE, --mode=RUNNINGMODE
+                        Running mode. Accept Cov and Full. Cov: only report
+                        coverage information on each gene; Full: run full
+                        analysis, slow. Default: Full
+  -e ERROR, --error=ERROR
+                        Maximum number of sequencing error per repeating unit
+                        tolerated. Default: 1
+  -l LENGTH, --overlaplength=LENGTH
+                        Minimum length of overlap sequence for calling reads
+                        overlap. Default 10
+  -a, --fasta           Whether or not output fasta format, only in Full mode.
+                        Default False
+  -s, --Single          If set True, TRUST will always run in single end mode
+  -H, --HeavyChainOnly  To save time, in single-end mode, TRUST only search
+                        for beta and delta chains unless this flag is set.
+  -I INSERTTHRESHOLD, --InsertThreshold=INSERTTHRESHOLD
+                        For PE library, when two mates overlap, TRUST cannot
+                        properly detect CDR3s based on mapped mates. Set
+                        larger value to force TRUST to run in PE mode despite
+                        small library insert size. Default 10.
+  -o WD, --OutputDirectory=WD
+                        Directory to store intermediate files and final TRUST
+                        report. User must have write privilege. If omitted,
+                        the current directory will be applied.
+  -B, --Bcell           B cell receptor inference is currently under active
+                        development.
+                        
