@@ -1,7 +1,7 @@
 This docker image sets up the environment to run the version of TRUST that was published:
 https://media.nature.com/original/nature-assets/ng/journal/v49/n4/extref/ng.3820-s2.zip
 
-This needs to be run on bam files.  Theyu previously recommended Bowtie2 or MapSlice to run the bams so I would suggest making your bams with those to avoid having to optomize parameters for STAR.
+This needs to be run on bam files.  They previously recommended Bowtie2 or MapSlice to run the bams so I would suggest making your bams with those to avoid having to optomize parameters for STAR.
 https://bitbucket.org/liulab/trust
 
 Interestingly the program and the readme say all rights reserved while the license is GNU.
@@ -56,38 +56,38 @@ exit
 
 Usage: TRUST.py [options]
 
-Options:
-  -h, --help            show this help message and exit
-  -d DIRECTORY, --directory=DIRECTORY
-                        Input bam directory
-  -f FILE, --file=FILE  Input bam file: if given, overwite -d option
-  -F FILES, --fileList=FILES
+Options:  
+  -h, --help            show this help message and exit  
+  -d DIRECTORY, --directory=DIRECTORY  
+                        Input bam directory  
+  -f FILE, --file=FILE  Input bam file: if given, overwite -d option  
+  -F FILES, --fileList=FILES  
                         Alternative input: a file containing the full path to
                         all the files. If given, overwrite -d and -f option
-  -m RUNNINGMODE, --mode=RUNNINGMODE
+  -m RUNNINGMODE, --mode=RUNNINGMODE  
                         Running mode. Accept Cov and Full. Cov: only report
                         coverage information on each gene; Full: run full
-                        analysis, slow. Default: Full
-  -e ERROR, --error=ERROR
+                        analysis, slow. Default: Full  
+  -e ERROR, --error=ERROR  
                         Maximum number of sequencing error per repeating unit
-                        tolerated. Default: 1
-  -l LENGTH, --overlaplength=LENGTH
+                        tolerated. Default: 1  
+  -l LENGTH, --overlaplength=LENGTH  
                         Minimum length of overlap sequence for calling reads
-                        overlap. Default 10
+                        overlap. Default 10  
   -a, --fasta           Whether or not output fasta format, only in Full mode.
-                        Default False
-  -s, --Single          If set True, TRUST will always run in single end mode
-  -H, --HeavyChainOnly  To save time, in single-end mode, TRUST only search
-                        for beta and delta chains unless this flag is set.
-  -I INSERTTHRESHOLD, --InsertThreshold=INSERTTHRESHOLD
+                        Default False  
+  -s, --Single          If set True, TRUST will always run in single end mode  
+  -H, --HeavyChainOnly  To save time, in single-end mode, TRUST only search  
+                        for beta and delta chains unless this flag is set.  
+  -I INSERTTHRESHOLD, --InsertThreshold=INSERTTHRESHOLD  
                         For PE library, when two mates overlap, TRUST cannot
                         properly detect CDR3s based on mapped mates. Set
                         larger value to force TRUST to run in PE mode despite
-                        small library insert size. Default 10.
-  -o WD, --OutputDirectory=WD
+                        small library insert size. Default 10.  
+  -o WD, --OutputDirectory=WD  
                         Directory to store intermediate files and final TRUST
                         report. User must have write privilege. If omitted,
-                        the current directory will be applied.
+                        the current directory will be applied.  
   -B, --Bcell           B cell receptor inference is currently under active
-                        development.
+                        development.  
                         
