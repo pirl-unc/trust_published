@@ -4,8 +4,6 @@ https://media.nature.com/original/nature-assets/ng/journal/v49/n4/extref/ng.3820
 This needs to be run on bam files.  They previously recommended Bowtie2 or MapSlice to run the bams so I would suggest making your bams with those to avoid having to optomize parameters for STAR.  
 https://bitbucket.org/liulab/trust  
   
-Interestingly the program and the readme say all rights reserved while the license is GNU.  
-  
 ---- Helpful commands ----  
   
 Init:  
