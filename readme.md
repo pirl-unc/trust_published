@@ -1,3 +1,5 @@
+* this repository was initially hosted at github.com/Benjamin-Vincent-Lab/trust_published , moved here on 2/12/2024
+
 This docker image sets up the environment to run the version of TRUST that was published:  
 https://media.nature.com/original/nature-assets/ng/journal/v49/n4/extref/ng.3820-s2.zip  
   
